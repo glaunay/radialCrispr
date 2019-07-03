@@ -222,9 +222,8 @@ export function RadarChart(id, data, options) {
 		.style("pointer-events", "all")
 		.on("mouseover", function(d,i) {
 			let newX =  parseFloat(d3.select(this).attr('cx')) - 10;
-			console.log(parseFloat(d3.select(this).attr("cx")) -10);
 			let newY =  parseFloat(d3.select(this).attr('cy')) - 10;
-			console.log(d)
+			// console.log(d.axis.replace (/(?!$|\n)([^\n]{4}(?!\n))/g, '$1\n'))
 			tooltip
 				.attr('x', newX)
 				.attr('y', newY)
@@ -235,6 +234,13 @@ export function RadarChart(id, data, options) {
 		.on("mouseout", function(){
 			tooltip.transition().duration(200)
 				.style("opacity", 0);
+		})
+		.on("click", (d) => {
+			console.log("CLICK");
+			console.log(d);
+			var event = new CustomEvent('clickTest');
+			window.dispatchEvent(event)
+
 		});
 
 	//Set up the small tooltip for when you hover over a circle

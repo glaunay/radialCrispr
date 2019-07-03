@@ -1,4 +1,4 @@
-import { Component, Prop, Element} from '@stencil/core';
+import { Component, Prop, Element, Listen} from '@stencil/core';
 import * as plot from "./radarChart";
 
 
@@ -14,8 +14,11 @@ export class MyComponent {
   @Prop() max_occ: number;
   @Element() private element: HTMLElement;
 // *************************** LISTEN & EMIT ***************************
-
-
+@Listen('window:clickTest')
+handleChangeOrg(event: CustomEvent) {
+  console.log("RECU");
+  console.log(event);
+}
 
 // *************************** CLICK ***************************
   chart(dicSgrna: Object) {
