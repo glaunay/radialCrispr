@@ -21,21 +21,24 @@ export class MyComponent {
   chart(dicSgrna: Object) {
     let dt = [];
     dicSgrna["occurences"].forEach(orga => {
-      console.log(orga)
       orga["all_ref"].forEach(ref => {
         dt.push({axis: orga.org + ref.ref, value: ref["coords"].length});
       })
     })
+    // calcul number levels
     var step = 2;
     var divLevels = this.max_occ/step;
     var nbLevels = Number.isInteger(divLevels) ? (divLevels) : (Math.trunc(divLevels + 1));
+
 		var radarChartOptions = {
 		  w: 500,
 		  h: 500,
 		  margin: {top: 100, right: 100, bottom: 100, left: 100},
 		  maxValue: this.max_occ,
 		  levels: nbLevels,
-		  roundStrokes: true
+		  roundStrokes: true,
+      // if number of organism+ref is > 10, no display labels
+      labels: (dt.length > 10) ? false : true
 		};
 
 		return plot.RadarChart(this.element.shadowRoot, [dt], radarChartOptions);
