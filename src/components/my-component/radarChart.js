@@ -15,6 +15,7 @@ export function RadarChart(id, data, options) {
 	 maxValue: 0, 			//What is the value that the biggest circle will represent
 	 labelFactor: 1.25, 	//How much farther than the radius of the outer circle should the labels be placed
 	 wrapWidth: 60, 		//The number of pixels after which a label needs to be given a new line
+	 labels: true,
 	 opacityArea: 0.35, 	//The opacity of the area of the blob
 	 dotRadius: 4, 			//The size of the colored circles of each blog
 	 opacityCircles: 0.1, 	//The opacity of the circles of each blob
@@ -122,16 +123,18 @@ export function RadarChart(id, data, options) {
 		.style("stroke", "white")
 		.style("stroke-width", "2px");
 
-	//Append the labels at each axis
-	axis.append("text")
-		.attr("class", "legend")
-		.style("font-size", "11px")
-		.attr("text-anchor", "middle")
-		.attr("dy", "0.35em")
-		.attr("x", function(d, i){ return rScale(maxValue * cfg.labelFactor) * Math.cos(angleSlice*i - Math.PI/2); })
-		.attr("y", function(d, i){ return rScale(maxValue * cfg.labelFactor) * Math.sin(angleSlice*i - Math.PI/2); })
-		.text(function(d){return d})
-		.call(wrap, cfg.wrapWidth);
+	if(cfg.labels) {
+		//Append the labels at each axis
+		axis.append("text")
+			.attr("class", "legend")
+			.style("font-size", "11px")
+			.attr("text-anchor", "middle")
+			.attr("dy", "0.35em")
+			.attr("x", function(d, i){ return rScale(maxValue * cfg.labelFactor) * Math.cos(angleSlice*i - Math.PI/2); })
+			.attr("y", function(d, i){ return rScale(maxValue * cfg.labelFactor) * Math.sin(angleSlice*i - Math.PI/2); })
+			.text(function(d){return d})
+			.call(wrap, cfg.wrapWidth);
+	}
 
 	/////////////////////////////////////////////////////////
 	///////////// Draw the radar chart blobs ////////////////
