@@ -14,10 +14,9 @@ export class MyComponent {
   @Prop() max_occ: number;
   @Element() private element: HTMLElement;
 // *************************** LISTEN & EMIT ***************************
-@Listen('window:clickTest')
+@Listen('window:changeOrgRefSgrna')
 handleChangeOrg(event: CustomEvent) {
-  console.log("RECU");
-  console.log(event);
+  console.log(event)
 }
 
 // *************************** CLICK ***************************

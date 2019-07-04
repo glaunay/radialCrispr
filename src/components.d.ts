@@ -7,7 +7,7 @@
 
 import '@stencil/core';
 
-import '@mmsb/selectionnable-tree';
+
 
 
 export namespace Components {
