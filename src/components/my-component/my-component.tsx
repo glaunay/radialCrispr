@@ -12,6 +12,7 @@ export class MyComponent {
 // *************************** PROPERTY & CONSTRUCTOR ***************************
   @Prop() dic_sgrna: string;
   @Prop() max_occ: number;
+  @Prop() diagonal: number;
   @Element() private element: HTMLElement;
 // *************************** LISTEN & EMIT ***************************
 @Listen('window:changeOrgRefSgrna')
@@ -33,9 +34,9 @@ handleChangeOrg(event: CustomEvent) {
     var nbLevels = Number.isInteger(divLevels) ? (divLevels) : (Math.trunc(divLevels + 1));
 
 		var radarChartOptions = {
-		  w: 500,
-		  h: 500,
-		  margin: {top: 100, right: 100, bottom: 100, left: 100},
+		  w: this.diagonal,
+		  h: this.diagonal,
+		  margin: {top: 0.1*this.diagonal, right: 0.1*this.diagonal, bottom: 0.1*this.diagonal, left: 0.1*this.diagonal},
 		  maxValue: this.max_occ,
 		  levels: nbLevels,
 		  roundStrokes: true,

@@ -13,10 +13,12 @@ import '@stencil/core';
 export namespace Components {
 
   interface RadialCrispr {
+    'diagonal': number;
     'dic_sgrna': string;
     'max_occ': number;
   }
   interface RadialCrisprAttributes extends StencilHTMLAttributes {
+    'diagonal'?: number;
     'dic_sgrna'?: string;
     'max_occ'?: number;
   }
