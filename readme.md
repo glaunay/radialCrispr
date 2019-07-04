@@ -2,7 +2,7 @@
 
 # Radial Representation
 
-[example display](https://github.com/sophielem/radialCrispr/blob/master/docs/example_display.png)
+![example display](https://github.com/sophielem/radialCrispr/blob/master/docs/example_display.png)
 
 ## Usage
 Pour utiliser ce composant, il est nécessaire de lui transmettre deux informations à l'aide des propriétés : **dic_sgrna** et **max_occ**.
