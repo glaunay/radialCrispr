@@ -21,7 +21,8 @@
     "d3": "^5.9.7"
   },
   "devDependencies": {
-    "@stencil/core": "~0.16.2"
+    "@stencil/core": "~0.16.2",
+    "rollup-plugin-node-polyfills": "^0.2.1"
   },
   "license": "MIT"
 }

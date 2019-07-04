@@ -1,5 +1,5 @@
 import { Component, Prop, Element, Listen} from '@stencil/core';
-import * as plot from "./radarChart";
+import * as plot from "../../assets/radarChart";
 
 
 @Component({
