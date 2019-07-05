@@ -26,7 +26,7 @@ handleChangeOrg(event: CustomEvent) {
     let dt = [];
     dicSgrna["occurences"].forEach(orga => {
       orga["all_ref"].forEach(ref => {
-        dt.push({axis: orga.org + ref.ref, value: ref["coords"].length});
+        dt.push({axis: orga.org + "$" + ref.ref, value: ref["coords"].length});
       })
     })
     // calcul number levels
@@ -52,7 +52,6 @@ handleChangeOrg(event: CustomEvent) {
 
   render() {
     console.log("rendr called");
-    console.log(this.dic_sgrna);
     let sgrna_parsed = JSON.parse(this.dic_sgrna);
     return ([
       <div id="radarChart"></div>,
