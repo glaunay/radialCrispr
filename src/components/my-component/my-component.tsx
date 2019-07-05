@@ -1,4 +1,4 @@
-import { Component, Prop, Element, Listen, h } from '@stencil/core';
+import { Component, Prop, Element, Listen, Event, EventEmitter, State, h } from '@stencil/core';
 import * as plot from "../../assets/radarChart";
 
 
@@ -13,13 +13,22 @@ export class MyComponent {
   @Prop() dic_sgrna: string;
   @Prop() max_occ: number;
   @Prop() diagonal: number;
+  @State() sgrna: string;
   @Element() private element: HTMLElement;
 // *************************** LISTEN & EMIT ***************************
-@Listen('changeOrgRefSgrna', { target: 'window' })
+@Listen('OrgRefSelected', { target: 'window' })
 handleChangeOrg(event: CustomEvent) {
-  console.log("Evenement reçu : ")
-  console.log(event.detail)
+  console.log("Evenement reçu : ");
+  console.log(event.detail);
+  this.emitchangeOrgRefSgrna(event.detail);
 }
+
+@Event() changeOrgRefSgrna: EventEmitter;
+  emitchangeOrgRefSgrna(data){
+    data['sgrna'] = this.sgrna
+    console.log(data);
+    this.changeOrgRefSgrna.emit(data);
+  }
 
 // *************************** CLICK ***************************
   chart(dicSgrna: Object) {
@@ -53,6 +62,7 @@ handleChangeOrg(event: CustomEvent) {
   render() {
     console.log("rendr called");
     let sgrna_parsed = JSON.parse(this.dic_sgrna);
+    this.sgrna = sgrna_parsed['sequence'];
     return ([
       <div id="radarChart"></div>,
       <span>

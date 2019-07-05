@@ -34,6 +34,7 @@ declare namespace LocalJSX {
     'diagonal'?: number;
     'dic_sgrna'?: string;
     'max_occ'?: number;
+    'onChangeOrgRefSgrna'?: (event: CustomEvent<any>) => void;
   }
 
   interface IntrinsicElements {
