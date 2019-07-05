@@ -1,4 +1,4 @@
-import { Component, Prop, Element, Listen} from '@stencil/core';
+import { Component, Prop, Element, Listen, h } from '@stencil/core';
 import * as plot from "../../assets/radarChart";
 
 
@@ -15,7 +15,7 @@ export class MyComponent {
   @Prop() diagonal: number;
   @Element() private element: HTMLElement;
 // *************************** LISTEN & EMIT ***************************
-@Listen('window:changeOrgRefSgrna')
+@Listen('changeOrgRefSgrna', { target: 'window' })
 handleChangeOrg(event: CustomEvent) {
   console.log("Evenement reçu : ")
   console.log(event.detail)

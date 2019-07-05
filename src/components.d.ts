@@ -5,33 +5,18 @@
  */
 
 
-import '@stencil/core';
-
-
+import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 
 export namespace Components {
-
   interface RadialCrispr {
     'diagonal': number;
     'dic_sgrna': string;
     'max_occ': number;
   }
-  interface RadialCrisprAttributes extends StencilHTMLAttributes {
-    'diagonal'?: number;
-    'dic_sgrna'?: string;
-    'max_occ'?: number;
-  }
 }
 
 declare global {
-  interface StencilElementInterfaces {
-    'RadialCrispr': Components.RadialCrispr;
-  }
-
-  interface StencilIntrinsicElements {
-    'radial-crispr': Components.RadialCrisprAttributes;
-  }
 
 
   interface HTMLRadialCrisprElement extends Components.RadialCrispr, HTMLStencilElement {}
@@ -39,22 +24,30 @@ declare global {
     prototype: HTMLRadialCrisprElement;
     new (): HTMLRadialCrisprElement;
   };
-
   interface HTMLElementTagNameMap {
-    'radial-crispr': HTMLRadialCrisprElement
-  }
-
-  interface ElementTagNameMap {
     'radial-crispr': HTMLRadialCrisprElement;
   }
-
-
-  export namespace JSX {
-    export interface Element {}
-    export interface IntrinsicElements extends StencilIntrinsicElements {
-      [tagName: string]: any;
-    }
-  }
-  export interface HTMLAttributes extends StencilHTMLAttributes {}
-
 }
+
+declare namespace LocalJSX {
+  interface RadialCrispr extends JSXBase.HTMLAttributes<HTMLRadialCrisprElement> {
+    'diagonal'?: number;
+    'dic_sgrna'?: string;
+    'max_occ'?: number;
+  }
+
+  interface IntrinsicElements {
+    'radial-crispr': RadialCrispr;
+  }
+}
+
+export { LocalJSX as JSX };
+
+
+declare module "@stencil/core" {
+  export namespace JSX {
+    interface IntrinsicElements extends LocalJSX.IntrinsicElements {}
+  }
+}
+
+
