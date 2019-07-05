@@ -1,4 +1,4 @@
-import { Component, Prop, Element, Listen, Event, EventEmitter, State, h } from '@stencil/core';
+import { Component, Prop, Element, State, h } from '@stencil/core';
 import * as plot from "../../assets/radarChart";
 
 
@@ -16,19 +16,6 @@ export class MyComponent {
   @State() sgrna: string;
   @Element() private element: HTMLElement;
 // *************************** LISTEN & EMIT ***************************
-@Listen('OrgRefSelected', { target: 'window' })
-handleChangeOrg(event: CustomEvent) {
-  console.log("Evenement reçu : ");
-  console.log(event.detail);
-  this.emitchangeOrgRefSgrna(event.detail);
-}
-
-@Event() changeOrgRefSgrna: EventEmitter;
-  emitchangeOrgRefSgrna(data){
-    data['sgrna'] = this.sgrna
-    console.log(data);
-    this.changeOrgRefSgrna.emit(data);
-  }
 
 // *************************** CLICK ***************************
   chart(dicSgrna: Object) {
@@ -54,7 +41,7 @@ handleChangeOrg(event: CustomEvent) {
       labels: (dt.length > 10) ? false : true
 		};
 
-		return plot.RadarChart(this.element.shadowRoot, [dt], radarChartOptions);
+		return plot.RadarChart(this.element.shadowRoot, [dt], radarChartOptions, this.sgrna);
 }
 
 // *************************** DISPLAY ***************************

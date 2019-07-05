@@ -6,7 +6,7 @@
 /////////////////////////////////////////////////////////
 import * as d3 from "d3";
 
-export function RadarChart(id, data, options) {
+export function RadarChart(id, data, options, sgrna) {
 	var cfg = {
 	 w: 600,				//Width of the circle
 	 h: 600,				//Height of the circle
@@ -236,7 +236,8 @@ export function RadarChart(id, data, options) {
 				.style("opacity", 0);
 		})
 		.on("click", (d) => {
-			var event = new CustomEvent('OrgRefSelected', {detail: d});
+			d['sgrna'] = sgrna;
+			var event = new CustomEvent('changeOrgRefSgrna', {detail: d});
 			window.dispatchEvent(event)
 
 		});
