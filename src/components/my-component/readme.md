@@ -14,13 +14,6 @@
 | `max_occ`   | `max_occ`   |             | `number` | `undefined` |
 
 
-## Events
-
-| Event               | Description | Type               |
-| ------------------- | ----------- | ------------------ |
-| `changeOrgRefSgrna` |             | `CustomEvent<any>` |
-
-
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
