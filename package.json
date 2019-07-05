@@ -1,5 +1,5 @@
 {
-  "name": "radial-rep",
+  "name": "radial-crispr",
   "version": "0.0.3",
   "description": "Stencil Component Starter",
   "module": "dist/esm/index.js",
@@ -21,7 +21,7 @@
     "d3": "^5.9.7"
   },
   "devDependencies": {
-    "@stencil/core": "~0.16.2",
+    "@stencil/core": "^1.1.4",
     "rollup-plugin-node-polyfills": "^0.2.1"
   },
   "license": "MIT"
