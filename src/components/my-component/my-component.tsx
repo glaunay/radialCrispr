@@ -17,7 +17,8 @@ export class MyComponent {
 // *************************** LISTEN & EMIT ***************************
 @Listen('window:changeOrgRefSgrna')
 handleChangeOrg(event: CustomEvent) {
-  console.log(event)
+  console.log("Evenement reçu : ")
+  console.log(event.detail)
 }
 
 // *************************** CLICK ***************************

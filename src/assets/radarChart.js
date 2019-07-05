@@ -236,7 +236,7 @@ export function RadarChart(id, data, options) {
 				.style("opacity", 0);
 		})
 		.on("click", (d) => {
-			var event = new CustomEvent('changeOrgRefSgrna');
+			var event = new CustomEvent('changeOrgRefSgrna', {detail: d});
 			window.dispatchEvent(event)
 
 		});
