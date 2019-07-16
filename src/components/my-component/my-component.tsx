@@ -10,11 +10,14 @@ import * as plot from "../../assets/radarChart";
 
 export class MyComponent {
 // *************************** PROPERTY & CONSTRUCTOR ***************************
+  @Element() private element: HTMLElement;
+
   @Prop() dic_sgrna: string;
   @Prop() max_occ: number;
   @Prop() diagonal: number;
+  @Prop({mutable: true}) step_radial = "2";
+
   @State() sgrna: string;
-  @Element() private element: HTMLElement;
 // *************************** LISTEN & EMIT ***************************
 
 // *************************** CLICK ***************************
@@ -26,8 +29,7 @@ export class MyComponent {
       })
     })
     // calcul number levels
-    var step = 2;
-    var divLevels = this.max_occ/step;
+    var divLevels = this.max_occ/Number(this.step_radial);
     var nbLevels = Number.isInteger(divLevels) ? (divLevels) : (Math.trunc(divLevels + 1));
 
 		var radarChartOptions = {
@@ -38,11 +40,12 @@ export class MyComponent {
 		  levels: nbLevels,
 		  roundStrokes: true,
       // if number of organism+ref is > 10, no display labels
-      labels: (dt.length > 10) ? false : true
+      // labels: (dt.length > 10) ? false : true
+      labels: false
 		};
 
 		return plot.RadarChart(this.element.shadowRoot, [dt], radarChartOptions, this.sgrna);
-}
+  }
 
 // *************************** DISPLAY ***************************
 

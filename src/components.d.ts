@@ -13,6 +13,7 @@ export namespace Components {
     'diagonal': number;
     'dic_sgrna': string;
     'max_occ': number;
+    'step_radial': string;
   }
 }
 
@@ -34,6 +35,7 @@ declare namespace LocalJSX {
     'diagonal'?: number;
     'dic_sgrna'?: string;
     'max_occ'?: number;
+    'step_radial'?: string;
   }
 
   interface IntrinsicElements {

@@ -7,11 +7,12 @@
 
 ## Properties
 
-| Property    | Attribute   | Description | Type     | Default     |
-| ----------- | ----------- | ----------- | -------- | ----------- |
-| `diagonal`  | `diagonal`  |             | `number` | `undefined` |
-| `dic_sgrna` | `dic_sgrna` |             | `string` | `undefined` |
-| `max_occ`   | `max_occ`   |             | `number` | `undefined` |
+| Property      | Attribute     | Description | Type     | Default     |
+| ------------- | ------------- | ----------- | -------- | ----------- |
+| `diagonal`    | `diagonal`    |             | `number` | `undefined` |
+| `dic_sgrna`   | `dic_sgrna`   |             | `string` | `undefined` |
+| `max_occ`     | `max_occ`     |             | `number` | `undefined` |
+| `step_radial` | `step_radial` |             | `string` | `"2"`       |
 
 
 ----------------------------------------------

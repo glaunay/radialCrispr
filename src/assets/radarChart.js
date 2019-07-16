@@ -227,9 +227,11 @@ export function RadarChart(id, data, options, sgrna) {
 			tooltip
 				.attr('x', newX)
 				.attr('y', newY)
-				.text(Format(d.value) + d.axis)
+				.attr("dy", "0.4em")
+				.text(Format(d.value) + d.axis, 10)
 				.transition().duration(200)
-				.style('opacity', 1);
+				.style('opacity', 1)
+				.call(wrap, "10");
 		})
 		.on("mouseout", function(){
 			tooltip.transition().duration(200)
@@ -243,7 +245,7 @@ export function RadarChart(id, data, options, sgrna) {
 		});
 
 	//Set up the small tooltip for when you hover over a circle
-	var tooltip = g.append("text")
+	var tooltip = g.append('text')
 		.attr("class", "tooltip")
 		.style("opacity", 0);
 
