@@ -47,7 +47,6 @@ export class MyComponent {
 // *************************** DISPLAY ***************************
 
   render() {
-    console.log("rendr called");
     let sgrna_parsed = JSON.parse(this.dic_sgrna);
     this.sgrna = sgrna_parsed['sequence'];
     return ([
