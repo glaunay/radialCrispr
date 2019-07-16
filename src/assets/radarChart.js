@@ -227,9 +227,10 @@ export function RadarChart(id, data, options, sgrna) {
 			tooltip
 				.attr('x', newX)
 				.attr('y', newY)
-				.attr("dy", "0.4em")
-				.text(Format(d.value) + d.axis, 10)
+				.attr("dy", "0.2em")
+				.text(Format(d.value) + d.axis, 15)
 				.transition().duration(200)
+				.style("font-size", "0.75em")
 				.style('opacity', 1)
 				.call(wrap, "10");
 		})
