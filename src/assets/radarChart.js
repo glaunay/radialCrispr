@@ -238,6 +238,8 @@ export function RadarChart(id, data, options, sgrna) {
 		.on("click", (d) => {
 			d['sgrna'] = sgrna;
 			var event = new CustomEvent('changeOrgRefSgrna', {detail: d});
+			console.log("*******************\nMessage envoyé : ")
+			console.log(event);
 			window.dispatchEvent(event)
 
 		});
