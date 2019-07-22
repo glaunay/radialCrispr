@@ -24,7 +24,6 @@ export function RadarChart(id, data, options, sgrna) {
 	 // color: d3.scaleOrdinal(d3.schemeCategory10)	//Color function
 	 color: ['rgba(239, 71, 111)', 'rgba(78, 195, 236, 0.9)']
 	};
-	console.log(d3.scaleOrdinal(d3.schemeCategory10))
 	//Put all of the options into a variable called cfg
 	if('undefined' !== typeof options){
 	  for(var i in options){
@@ -224,7 +223,6 @@ export function RadarChart(id, data, options, sgrna) {
 		.on("mouseover", function(d,i) {
 			let newX =  parseFloat(d3.select(this).attr('cx')) - 10;
 			let newY =  parseFloat(d3.select(this).attr('cy')) - 10;
-			// console.log(d.axis.replace (/(?!$|\n)([^\n]{4}(?!\n))/g, '$1\n'))
 			tooltip
 				.attr('x', newX)
 				.attr('y', newY)
