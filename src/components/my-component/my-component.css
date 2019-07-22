@@ -1,3 +1,7 @@
 .radarInvisibleCircle {
   cursor: pointer;
 }
+
+.radarChart{
+  font-family: "Helvetica Neue", Helvetica, Arial;
+}

@@ -21,9 +21,10 @@ export function RadarChart(id, data, options, sgrna) {
 	 opacityCircles: 0.1, 	//The opacity of the circles of each blob
 	 strokeWidth: 2, 		//The width of the stroke around each blob
 	 roundStrokes: false,	//If true the area and stroke will follow a round path (cardinal-closed)
-	 color: d3.scaleOrdinal(d3.schemeCategory10)	//Color function
+	 // color: d3.scaleOrdinal(d3.schemeCategory10)	//Color function
+	 color: ['rgba(239, 71, 111)', 'rgba(78, 195, 236, 0.9)']
 	};
-
+	console.log(d3.scaleOrdinal(d3.schemeCategory10))
 	//Put all of the options into a variable called cfg
 	if('undefined' !== typeof options){
 	  for(var i in options){
@@ -86,8 +87,8 @@ export function RadarChart(id, data, options, sgrna) {
 		.append("circle")
 		.attr("class", "gridCircle")
 		.attr("r", function(d, i){return radius/cfg.levels*d;})
-		.style("fill", "#CDCDCD")
-		.style("stroke", "#CDCDCD")
+		.style("fill", "rgb(222, 221, 221)")
+		.style("stroke", "rgb(222, 221, 221)")
 		.style("fill-opacity", cfg.opacityCircles)
 		.style("filter" , "url(#glow)");
 
@@ -161,7 +162,7 @@ export function RadarChart(id, data, options, sgrna) {
 		.append("path")
 		.attr("class", "radarArea")
 		.attr("d", function(d,i) { return radarLine(d); })
-		.style("fill", function(d,i) { return cfg.color(i); })
+		.style("fill", function(d,i) { return cfg.color[1]; })
 		.style("fill-opacity", cfg.opacityArea)
 		.on('mouseover', function (d,i){
 			//Dim all blobs
@@ -185,7 +186,7 @@ export function RadarChart(id, data, options, sgrna) {
 		.attr("class", "radarStroke")
 		.attr("d", function(d,i) { return radarLine(d); })
 		.style("stroke-width", cfg.strokeWidth + "px")
-		.style("stroke", function(d,i) { return cfg.color(i); })
+		.style("stroke", function(d,i) { return cfg.color[1]; })
 		.style("fill", "none")
 		.style("filter" , "url(#glow)");
 
@@ -197,7 +198,7 @@ export function RadarChart(id, data, options, sgrna) {
 		.attr("r", cfg.dotRadius)
 		.attr("cx", function(d,i){ return rScale(d.value) * Math.cos(angleSlice*i - Math.PI/2); })
 		.attr("cy", function(d,i){ return rScale(d.value) * Math.sin(angleSlice*i - Math.PI/2); })
-		.style("fill", function(d,i,j) { return cfg.color(j); })
+		.style("fill", function(d,i,j) { return cfg.color[0]; })
 		.style("fill-opacity", 0.8);
 
 	/////////////////////////////////////////////////////////
