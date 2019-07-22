@@ -18,7 +18,6 @@ export class MyComponent {
   @Prop({mutable: true}) step_radial = "2";
 
   @State() sgrna: string;
-// *************************** LISTEN & EMIT ***************************
 
 // *************************** CLICK ***************************
   chart(dicSgrna: Object) {
