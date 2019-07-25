@@ -258,7 +258,7 @@ export function RadarChart(id, data, options, sgrna) {
 	function wrap(text, width) {
 	  text.each(function() {
 		var text = d3.select(this),
-			words = text.text().split(/\s+/).reverse(),
+		  words = text.text().replace(/\$/, " ").split(/\s+/).reverse(),
 			word,
 			line = [],
 			lineNumber = 0,
